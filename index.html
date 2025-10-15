@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AInstein Automations - Intelligent Automation Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700&family=DM+Sans:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric-sky-blue: #3ABEF9;
+            --pure-white: #FFFFFF;
+            --charcoal-gray: #1E1E1E;
+            --soft-silver-gray: #DADADA;
+            --mint-green: #90F1D2;
+            --off-white: #F9F9F9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--charcoal-gray);
+            background-color: var(--pure-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--electric-sky-blue);
+            color: var(--pure-white);
+        }
+
+        .btn-primary:hover {
+            background-color: #2a9fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 190, 249, 0.3);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--charcoal-gray);
+        }
+
+        .logo span {
+            color: var(--electric-sky-blue);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--electric-sky-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            background-color: var(--off-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--electric-sky-blue) 0%, var(--mint-green) 100%);
+            opacity: 0.05;
+            border-radius: 0 0 0 100px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--electric-sky-blue);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--pure-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--pure-white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--soft-silver-gray);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--electric-sky-blue);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(58, 190, 249, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--off-white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--pure-white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--soft-silver-gray);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--electric-sky-blue) 0%, var(--mint-green) 100%);
+            color: var(--pure-white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta .btn {
+            background-color: var(--pure-white);
+            color: var(--electric-sky-blue);
+        }
+
+        .cta .btn:hover {
+            background-color: var(--charcoal-gray);
+            color: var(--pure-white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal-gray);
+            color: var(--pure-white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content, .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">AInstein<span>Automations</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="https://tally.so/r/mVgbVM" class="btn btn-primary" target="_blank">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Intelligent Automation for <span>Smarter Business</span></h1>
+                <p>We help businesses streamline operations, reduce costs, and boost productivity through cutting-edge AI-powered automation solutions tailored to your unique needs.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="https://tally.so/r/mVgbVM" class="btn btn-primary" style="background: transparent; border: 1px solid var(--electric-sky-blue); color: var(--electric-sky-blue);" target="_blank">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="kanban-6900750_1280.jpg" alt="Kanban Board Automation System">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Automation Services</h2>
+                <p>We provide comprehensive automation solutions that transform how you do business</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Process Automation</h3>
+                    <p>Streamline repetitive tasks and workflows with intelligent automation that learns and adapts to your business processes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>AI Integration</h3>
+                    <p>Leverage the power of artificial intelligence to make data-driven decisions and enhance customer experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Data Analytics</h3>
+                    <p>Transform raw data into actionable insights with our advanced analytics and visualization tools.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored automation systems designed specifically for your unique business challenges and objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Why Choose AInstein Automations?</h2>
+                <p>We are at the forefront of intelligent automation, combining cutting-edge AI technology with deep industry expertise to deliver solutions that drive real business value.</p>
+                <p>Our team of experts works closely with you to understand your unique challenges and design automation systems that not only solve immediate problems but also position your business for future growth.</p>
+                <p>With AInstein Automations, you're not just getting automation technology – you're gaining a strategic partner committed to your success.</p>
+                <a href="https://tally.so/r/mVgbVM" class="btn btn-primary" style="margin-top: 20px;" target="_blank">Learn More</a>
+            </div>
+            <div class="about-image">
+                <img src="marketing-3582974_1280.jpg" alt="Marketing Workflow Automation">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Don't just take our word for it - hear from businesses that have transformed with our automation solutions</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"AInstein Automations revolutionized our workflow. What used to take hours now happens automatically, freeing our team to focus on strategic initiatives."</p>
+                    <div style="margin-top: 20px; font-weight: bold;">Sarah Johnson</div>
+                    <div style="color: #666;">Operations Director, TechFlow Inc.</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The AI integration they implemented has given us insights we never thought possible. Our decision-making is now data-driven and significantly more effective."</p>
+                    <div style="margin-top: 20px; font-weight: bold;">Michael Chen</div>
+                    <div style="color: #666;">CEO, DataSphere Solutions</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Working with AInstein was a game-changer. Their custom automation solution saved us 40+ hours per week and reduced errors by over 90%."</p>
+                    <div style="margin-top: 20px; font-weight: bold;">Emily Rodriguez</div>
+                    <div style="color: #666;">Founder, GrowthLab Marketing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Automate Your Business?</h2>
+            <p>Contact us today for a free consultation and discover how our intelligent automation solutions can transform your operations.</p>
+            <a href="https://tally.so/r/mVgbVM" class="btn" style="margin-top: 30px;" target="_blank">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>AInstein Automations</h3>
+                    <p>Intelligent automation solutions for forward-thinking businesses.</p>
+                </div>
+                <div>
+                    <h3>Contact Us</h3>
+                    <p>Email: AinsteinAutomation@gmail.com</p>
+                    <p>Phone: (302) 803-8664</p>
+                    <p>Location: Delaware, USA</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <p><a href="#home" style="color: #aaa;">Home</a></p>
+                    <p><a href="#services" style="color: #aaa;">Services</a></p>
+                    <p><a href="#about" style="color: #aaa;">About</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AInstein Automations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
