@@ -1,498 +1,1393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AInstein Automations - Intelligent Automation Solutions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700&family=DM+Sans:wght@500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --electric-sky-blue: #3ABEF9;
-            --pure-white: #FFFFFF;
-            --charcoal-gray: #1E1E1E;
-            --soft-silver-gray: #DADADA;
-            --mint-green: #90F1D2;
-            --off-white: #F9F9F9;
-        }
+  <meta charset="UTF-8" />
+  <title>A.I.nstein Automations – AI Websites, Funnels & Business Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A.I.nstein Automations builds AI-powered websites, premium landing pages, and intelligent automations for real estate pros and small businesses. Automate everything. Grow faster. Think smarter." />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at top left, #5bc6ff 0, #1f2c73 45%, #05081a 100%);
+      --accent: #4f8dff;
+      --accent-soft: rgba(79, 141, 255, 0.16);
+      --accent-strong: #00e0ff;
+      --text-main: #f7fbff;
+      --text-muted: #a6b5d7;
+      --card-bg: rgba(10, 16, 40, 0.96);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --pill-bg: rgba(255, 255, 255, 0.06);
+      --danger: #ff4f7a;
+      --success: #31d99e;
+      --shadow-soft: 0 28px 80px rgba(0, 0, 0, 0.6);
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: var(--charcoal-gray);
-            background-color: var(--pure-white);
-            line-height: 1.6;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1, h2, h3, h4, h5 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            text-decoration: none;
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        .btn-primary {
-            background-color: var(--electric-sky-blue);
-            color: var(--pure-white);
-        }
+    /* Layout */
 
-        .btn-primary:hover {
-            background-color: #2a9fd8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(58, 190, 249, 0.3);
-        }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: var(--text-main);
+    }
 
-        section {
-            padding: 80px 0;
-        }
+    .max-w {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
+    }
 
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 20px 0;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 8, 26, 0.95), rgba(5, 8, 26, 0.2));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
 
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: var(--charcoal-gray);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
 
-        .logo span {
-            color: var(--electric-sky-blue);
-        }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffffff 0, #cce9ff 30%, #1a3b7a 75%, #00021a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #041023;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
 
-        nav ul li {
-            margin-left: 30px;
-        }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
 
-        nav ul li a {
-            font-weight: 500;
-            position: relative;
-        }
+    .brand-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+    }
 
-        nav ul li a:hover {
-            color: var(--electric-sky-blue);
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
 
-        /* Hero Section */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            background-color: var(--off-white);
-            position: relative;
-            overflow: hidden;
-        }
+    .nav-links a {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--electric-sky-blue) 0%, var(--mint-green) 100%);
-            opacity: 0.05;
-            border-radius: 0 0 0 100px;
-        }
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
 
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, var(--accent-strong), #8f7bff);
+      color: #02030a;
+      font-weight: 600;
+      font-size: 0.82rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(0, 224, 255, 0.3);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-        .hero-text {
-            flex: 1;
-        }
+    .nav-cta:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 18px 40px rgba(0, 224, 255, 0.4);
+      transform: translateY(-1px);
+    }
 
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
+    /* Mobile nav */
 
-        .hero-text h1 span {
-            color: var(--electric-sky-blue);
-        }
+    .nav-mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 0.3rem 0.5rem;
+      color: var(--text-main);
+    }
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
+    .nav-mobile-icon {
+      width: 18px;
+      height: 2px;
+      background: var(--text-main);
+      position: relative;
+      display: block;
+    }
 
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
+    .nav-mobile-icon::before,
+    .nav-mobile-icon::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: var(--text-main);
+      left: 0;
+    }
 
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+    .nav-mobile-icon::before { top: -5px; }
+    .nav-mobile-icon::after { top: 5px; }
 
-        /* Services Section */
-        .services {
-            background-color: var(--pure-white);
-        }
+    .nav-links-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+    /* Hero */
 
-        .section-header h2 {
-            font-size: 36px;
-        }
+    .hero {
+      padding: 4rem 0 3rem;
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.8rem;
+      align-items: center;
+    }
 
-        .service-card {
-            background-color: var(--pure-white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid var(--soft-silver-gray);
-        }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: var(--pill-bg);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--electric-sky-blue);
-        }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 12px rgba(0, 224, 255, 0.9);
+    }
 
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(58, 190, 249, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+    .hero-title {
+      font-size: clamp(2.2rem, 3.4vw, 3rem);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.9rem;
+    }
 
-        /* About Section */
-        .about {
-            background-color: var(--off-white);
-        }
+    .hero-highlight {
+      background: linear-gradient(135deg, #7af2ff, #d6e6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
 
-        .about-text {
-            flex: 1;
-        }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.8rem;
+    }
 
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+    .hero-badge {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(2, 229, 255, 0.07);
+      border: 1px solid rgba(2, 229, 255, 0.28);
+      color: #a9f7ff;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 500;
+    }
 
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.3rem;
+    }
 
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: var(--radius-pill);
+      padding: 0.65rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+      text-decoration: none;
+    }
 
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, #00e0ff, #8f7bff);
+      color: #020212;
+      box-shadow: 0 16px 40px rgba(10, 215, 255, 0.4);
+    }
 
-        .testimonial-card {
-            background-color: var(--pure-white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--soft-silver-gray);
-        }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(10, 215, 255, 0.55);
+      filter: brightness(1.06);
+    }
 
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--electric-sky-blue) 0%, var(--mint-green) 100%);
-            color: var(--pure-white);
-            text-align: center;
-            padding: 100px 0;
-        }
+    .btn-ghost {
+      background: rgba(3, 8, 28, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-main);
+    }
 
-        .cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
+    }
 
-        .cta .btn {
-            background-color: var(--pure-white);
-            color: var(--electric-sky-blue);
-        }
+    .hero-footnote {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
-        .cta .btn:hover {
-            background-color: var(--charcoal-gray);
-            color: var(--pure-white);
-        }
+    .hero-footnote span {
+      color: #a0e7ff;
+      font-weight: 500;
+    }
 
-        /* Footer */
-        footer {
-            background-color: var(--charcoal-gray);
-            color: var(--pure-white);
-            padding: 80px 0 30px;
-        }
+    .hero-right {
+      position: relative;
+    }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
+    .hero-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(7, 14, 43, 0.99), rgba(9, 31, 86, 0.98));
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-        }
+    .hero-card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content, .about-content {
-                flex-direction: column;
-            }
-            
-            .hero-text h1 {
-                font-size: 36px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                display: none;
-            }
-        }
-    </style>
+    .hero-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-sub {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      max-width: 20rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card-tag {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #d6e4ff;
+    }
+
+    .hero-card-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.9rem;
+      background: radial-gradient(circle at left, rgba(0, 255, 209, 0.2), rgba(0, 0, 0, 0.7));
+      border: 1px solid rgba(0, 255, 209, 0.35);
+      margin-bottom: 0.9rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-card-strip span {
+      font-weight: 500;
+      color: #e5fff7;
+    }
+
+    .hero-card-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    .hero-card-foot strong {
+      color: #d2e3ff;
+      font-weight: 600;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40px;
+      pointer-events: none;
+      opacity: 0.32;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 255, 209, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(120, 152, 255, 0.24), transparent 55%);
+      mix-blend-mode: screen;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-heading {
+      margin-bottom: 1.6rem;
+      text-align: left;
+    }
+
+    .section-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 32rem;
+    }
+
+    /* Services grid */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.3rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.4rem;
+      border: 1px solid var(--card-border);
+      padding: 1.3rem 1.2rem;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-label-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-price {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #d9e4ff;
+    }
+
+    .card-price span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .card-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: #ced8ff;
+      margin-bottom: 1rem;
+    }
+
+    .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-list li::before {
+      content: "•";
+      color: var(--accent-strong);
+      font-size: 1.1rem;
+      line-height: 1;
+      margin-top: -0.05rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .badge-recommend {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 224, 255, 0.16);
+      color: #a6f8ff;
+      border: 1px solid rgba(0, 224, 255, 0.43);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .card-accent-border {
+      border: 1px solid rgba(0, 224, 255, 0.55);
+      box-shadow:
+        0 0 0 1px rgba(0, 224, 255, 0.25),
+        0 18px 50px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Features */
+
+    .feature-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.3rem;
+    }
+
+    .feature-box {
+      background: var(--card-bg);
+      border-radius: 1.1rem;
+      border: 1px solid var(--card-border);
+      padding: 1rem 1rem;
+      font-size: 0.83rem;
+    }
+
+    .feature-box-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-box span {
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .comparison-box {
+      background: radial-gradient(circle at top left, rgba(255, 120, 120, 0.18), rgba(0, 0, 0, 0.8));
+      border-radius: 1.2rem;
+      padding: 1.1rem 1.1rem;
+      border: 1px solid rgba(255, 120, 120, 0.45);
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .comparison-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .comparison-good {
+      background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.22), rgba(0, 0, 0, 0.8));
+      border-color: rgba(0, 224, 255, 0.55);
+    }
+
+    /* Process */
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+
+    .step {
+      background: var(--card-bg);
+      border-radius: 1.2rem;
+      border: 1px solid var(--card-border);
+      padding: 1.1rem 1.1rem;
+      font-size: 0.84rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+      color: #d8e4ff;
+      background: rgba(13, 24, 65, 0.7);
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      font-size: 0.92rem;
+    }
+
+    .step span {
+      color: var(--text-muted);
+    }
+
+    /* CTA / form */
+
+    .cta {
+      padding: 3rem 0 3.5rem;
+    }
+
+    .cta-inner {
+      background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.24), rgba(3, 6, 24, 0.98));
+      border-radius: 1.7rem;
+      padding: 1.8rem 1.5rem;
+      border: 1px solid rgba(0, 224, 255, 0.4);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .cta-heading {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-copy {
+      font-size: 0.9rem;
+      color: #d9e9ff;
+      margin-bottom: 0.9rem;
+      max-width: 28rem;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+    }
+
+    .cta-link-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(4, 14, 40, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #e2ecff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .cta-link-pill span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .form {
+      background: rgba(2, 6, 26, 0.92);
+      border-radius: 1.2rem;
+      padding: 1.1rem 1rem;
+      border: 1px solid rgba(0, 224, 255, 0.35);
+      font-size: 0.85rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.7rem;
+      flex: 1;
+    }
+
+    .form label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .form input,
+    .form select,
+    .form textarea {
+      background: rgba(5, 12, 40, 0.95);
+      border-radius: 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 0.45rem 0.6rem;
+      color: #e9f2ff;
+      font-size: 0.84rem;
+      outline: none;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 0;
+    }
+
+    .form input:focus,
+    .form select:focus,
+    .form textarea:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(0, 224, 255, 0.35);
+    }
+
+    .form textarea {
+      min-height: 80px;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .form-status {
+      font-size: 0.78rem;
+      margin-top: 0.4rem;
+    }
+
+    .form-status.success {
+      color: var(--success);
+    }
+
+    .form-status.error {
+      color: var(--danger);
+    }
+
+    footer {
+      padding: 1.5rem 0 2.2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    footer .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--text-muted);
+    }
+
+    footer a:hover {
+      color: #e4ecff;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .feature-columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .feature-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .process-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav-links-wrap {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 0.8rem;
+      }
+
+      .nav-links-wrap.open {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .nav-links a {
+        width: 100%;
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-mobile-toggle {
+        display: inline-flex;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .cta-inner {
+        padding: 1.4rem 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
+  <div class="page">
+    <!-- HEADER -->
     <header>
-        <div class="container header-container">
-            <a href="#" class="logo">AInstein<span>Automations</span></a>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="https://tally.so/r/mVgbVM" class="btn btn-primary" target="_blank">Contact Us</a></li>
-                </ul>
-            </nav>
+      <div class="max-w nav">
+        <div class="brand">
+          <div class="brand-logo">A.I.</div>
+          <div class="brand-text">
+            <div class="brand-name">A.I.nstein Automations</div>
+            <div class="brand-tag">AI Websites • Funnels • Systems</div>
+          </div>
         </div>
+
+        <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span class="nav-mobile-icon"></span>
+        </button>
+
+        <div class="nav-links-wrap" id="navLinksWrap">
+          <nav class="nav-links">
+            <a href="#services">Solutions</a>
+            <a href="#features">Why It Works</a>
+            <a href="#process">How It Works</a>
+            <a href="#cta">Get Started</a>
+          </nav>
+          <a href="#cta" class="nav-cta">
+            Book Strategy Call
+          </a>
+        </div>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Intelligent Automation for <span>Smarter Business</span></h1>
-                <p>We help businesses streamline operations, reduce costs, and boost productivity through cutting-edge AI-powered automation solutions tailored to your unique needs.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="https://tally.so/r/mVgbVM" class="btn btn-primary" style="background: transparent; border: 1px solid var(--electric-sky-blue); color: var(--electric-sky-blue);" target="_blank">Get in Touch</a>
-                </div>
+    <!-- HERO -->
+    <main>
+      <section class="hero">
+        <div class="max-w hero-grid">
+          <div>
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Automate your business, not your humanity
             </div>
-            <div class="hero-image">
-                <img src="kanban-6900750_1280.jpg" alt="Kanban Board Automation System">
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Automation Services</h2>
-                <p>We provide comprehensive automation solutions that transform how you do business</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Process Automation</h3>
-                    <p>Streamline repetitive tasks and workflows with intelligent automation that learns and adapts to your business processes.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🧠</div>
-                    <h3>AI Integration</h3>
-                    <p>Leverage the power of artificial intelligence to make data-driven decisions and enhance customer experiences.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Data Analytics</h3>
-                    <p>Transform raw data into actionable insights with our advanced analytics and visualization tools.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h3>Custom Solutions</h3>
-                    <p>Tailored automation systems designed specifically for your unique business challenges and objectives.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1 class="hero-title">
+              <span class="hero-highlight">Automate Everything.</span><br />
+              Grow Faster. Think Smarter.
+            </h1>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container about-content">
-            <div class="about-text">
-                <h2>Why Choose AInstein Automations?</h2>
-                <p>We are at the forefront of intelligent automation, combining cutting-edge AI technology with deep industry expertise to deliver solutions that drive real business value.</p>
-                <p>Our team of experts works closely with you to understand your unique challenges and design automation systems that not only solve immediate problems but also position your business for future growth.</p>
-                <p>With AInstein Automations, you're not just getting automation technology – you're gaining a strategic partner committed to your success.</p>
-                <a href="https://tally.so/r/mVgbVM" class="btn btn-primary" style="margin-top: 20px;" target="_blank">Learn More</a>
-            </div>
-            <div class="about-image">
-                <img src="marketing-3582974_1280.jpg" alt="Marketing Workflow Automation">
-            </div>
-        </div>
-    </section>
+            <p class="hero-subtitle">
+              A.I.nstein Automations builds AI-powered websites, landing pages, and systems
+              that capture leads, follow up automatically, and free you up to close more deals.
+            </p>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Clients Say</h2>
-                <p>Don't just take our word for it - hear from businesses that have transformed with our automation solutions</p>
+            <div class="hero-badges">
+              <div class="hero-badge">AI Websites</div>
+              <div class="hero-badge">Real Estate Funnels</div>
+              <div class="hero-badge">Automated Follow-Up</div>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"AInstein Automations revolutionized our workflow. What used to take hours now happens automatically, freeing our team to focus on strategic initiatives."</p>
-                    <div style="margin-top: 20px; font-weight: bold;">Sarah Johnson</div>
-                    <div style="color: #666;">Operations Director, TechFlow Inc.</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The AI integration they implemented has given us insights we never thought possible. Our decision-making is now data-driven and significantly more effective."</p>
-                    <div style="margin-top: 20px; font-weight: bold;">Michael Chen</div>
-                    <div style="color: #666;">CEO, DataSphere Solutions</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Working with AInstein was a game-changer. Their custom automation solution saved us 40+ hours per week and reduced errors by over 90%."</p>
-                    <div style="margin-top: 20px; font-weight: bold;">Emily Rodriguez</div>
-                    <div style="color: #666;">Founder, GrowthLab Marketing</div>
-                </div>
+
+            <div class="hero-actions">
+              <a href="#cta" class="btn-primary">Get My System Built</a>
+              <a href="http://bit.ly/AgentLPDemo" class="btn-ghost" target="_blank" rel="noopener">
+                View Agent Landing Page Demo
+              </a>
             </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>Ready to Automate Your Business?</h2>
-            <p>Contact us today for a free consultation and discover how our intelligent automation solutions can transform your operations.</p>
-            <a href="https://tally.so/r/mVgbVM" class="btn" style="margin-top: 30px;" target="_blank">Get Started</a>
-        </div>
-    </section>
+            <p class="hero-footnote">
+              Also built for <span>investors, lenders, and small businesses</span> who want systems,
+              not just pretty websites.
+            </p>
+          </div>
 
-    <!-- Footer -->
+          <div class="hero-right">
+            <div class="hero-card">
+              <div class="hero-card-label">
+                <span class="pill-dot"></span> Live Preview Snapshot
+              </div>
+              <div class="hero-card-title">Premium Agent Layout</div>
+              <p class="hero-card-sub">
+                Luxury hero, instant lead form, social proof, and Calendly-style booking — in one focused page.
+              </p>
+
+              <div class="hero-card-tags">
+                <div class="hero-card-tag">Instant Form + CTA</div>
+                <div class="hero-card-tag">High-End Brand Look</div>
+                <div class="hero-card-tag">Built for Top Producers</div>
+              </div>
+
+              <div class="hero-card-strip">
+                <div>
+                  Send your stale listings, cold leads, or FSBOs to a page that actually converts.
+                </div>
+              </div>
+
+              <div class="hero-card-foot">
+                <span>Demo live at <strong>bit.ly/AgentLPDemo</strong></span>
+                <span>Built by A.I.nstein Automations</span>
+              </div>
+
+              <div class="hero-orbit"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES / PACKAGES -->
+      <section id="services">
+        <div class="max-w">
+          <div class="section-heading">
+            <div class="section-eyebrow">Solutions</div>
+            <h2 class="section-title">Pick the System That Fits Your Business</h2>
+            <p class="section-sub">
+              Start lean with a one-page QuickSite, upgrade to a premium landing page, or let us
+              build a full AI-powered business system around how you actually work.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <!-- QuickSite -->
+            <article class="card">
+              <div class="card-label-pill">
+                <span class="pill-dot"></span> Quick Launch Website
+              </div>
+              <h3 class="card-title">QuickSite99</h3>
+              <div class="card-price">$99 <span> • billed once</span></div>
+              <p class="card-body">
+                A clean, conversion-ready one-page site you can launch in days, not weeks.
+                Perfect for investors and small businesses who just need a professional home online.
+              </p>
+              <ul class="card-list">
+                <li>1-page responsive site built from a proven layout</li>
+                <li>Headline, offer, services, and contact form sections</li>
+                <li>Essential on-page SEO & fast performance</li>
+                <li>Easy to plug into your existing CRM or Airtable</li>
+              </ul>
+              <div class="card-footer">
+                <span>Great for: new brands & solo operators</span>
+                <a href="#cta" class="btn-ghost" style="padding:0.45rem 1rem;font-size:0.8rem;">Get a QuickSite</a>
+              </div>
+            </article>
+
+            <!-- Premium Agent LP -->
+            <article class="card card-accent-border">
+              <div class="card-label-pill">
+                <span class="pill-dot"></span> Recommended for Agents
+              </div>
+              <h3 class="card-title">Premium Agent Landing Page</h3>
+              <div class="card-price">$497 <span> • one-time, no retainer</span></div>
+              <p class="card-body">
+                A luxury, high-performance landing page for serious agents who want a
+                “send-all-my-traffic-here” destination that actually converts.
+              </p>
+              <ul class="card-list">
+                <li>Premium hero section with your branding & headshot</li>
+                <li>Instant lead capture form + clear primary CTA</li>
+                <li>Social proof, testimonials, and authority sections</li>
+                <li>Mobile-first layout, performance tuning & SEO-friendly build</li>
+                <li>Integration-ready with Calendly, Airtable, or your CRM</li>
+              </ul>
+              <div class="card-footer">
+                <span class="badge-recommend">Most Popular</span>
+                <a href="http://bit.ly/AgentLPDemo" target="_blank" rel="noopener"
+                   class="btn-primary" style="padding:0.45rem 1.1rem;font-size:0.8rem;">
+                  View Live Demo
+                </a>
+              </div>
+            </article>
+
+            <!-- AI Business System -->
+            <article class="card">
+              <div class="card-label-pill">
+                <span class="pill-dot"></span> Custom Automations & AI
+              </div>
+              <h3 class="card-title">AI Business System</h3>
+              <div class="card-price">$2,500+ <span> • starting at</span></div>
+              <p class="card-body">
+                For businesses ready to go beyond “just a site.” We design and build a custom stack
+                of AI tools and automations around your offers, pipeline, and workflows.
+              </p>
+              <ul class="card-list">
+                <li>Lead intake bots and smart forms that qualify prospects for you</li>
+                <li>Automated follow-up via email/SMS tied into your CRM</li>
+                <li>Custom dashboards & Airtable/Notion pipelines</li>
+                <li>Optional voice agents, chatbots, and real estate AI tools</li>
+              </ul>
+              <div class="card-footer">
+                <span>Built 1:1 around your business</span>
+                <a href="#cta" class="btn-ghost" style="padding:0.45rem 1.1rem;font-size:0.8rem;">
+                  Talk About a System
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES / WHY IT WORKS -->
+      <section id="features">
+        <div class="max-w">
+          <div class="section-heading">
+            <div class="section-eyebrow">Why This Works</div>
+            <h2 class="section-title">Built for Real Leads, Not Just Pretty Designs</h2>
+            <p class="section-sub">
+              This isn’t a random “template shop.” Every page and system is designed around how
+              clients actually discover you, decide, and take the next step.
+            </p>
+          </div>
+
+          <div class="feature-columns">
+            <div>
+              <div class="feature-list">
+                <div class="feature-box">
+                  <div class="feature-box-title">Premium Brand Hero</div>
+                  <span>Clear positioning, bold headline, and a layout that makes you look like
+                    the obvious choice in your market.</span>
+                </div>
+                <div class="feature-box">
+                  <div class="feature-box-title">High-Converting Lead Capture</div>
+                  <span>Strategic CTAs and focused forms so visitors always know the next step:
+                    book a call, request a valuation, or join your VIP list.</span>
+                </div>
+                <div class="feature-box">
+                  <div class="feature-box-title">Social Proof & Authority</div>
+                  <span>Space for testimonials, stats, and logos so you can flex your results
+                    without sounding desperate or salesy.</span>
+                </div>
+                <div class="feature-box">
+                  <div class="feature-box-title">Fast, Mobile-First Layouts</div>
+                  <span>Designed to feel like a high-end app on phone and tablet. No weird overlaps
+                    or broken sections.</span>
+                </div>
+                <div class="feature-box">
+                  <div class="feature-box-title">Calendar & CRM Friendly</div>
+                  <span>Plug into Calendly, Airtable, or your CRM of choice — so follow-up and
+                    tracking become automatic.</span>
+                </div>
+                <div class="feature-box">
+                  <div class="feature-box-title">SEO & Ad Ready</div>
+                  <span>Clean code and focused structure give you a strong base for local SEO,
+                    retargeting, and paid traffic.</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="comparison-box">
+                <div class="comparison-title">Most Templates</div>
+                <p>
+                  Generic, overwhelming, and packed with sections you don’t need.
+                  Slow load times, confusing CTAs, and “Lorem ipsum” vibes that don’t sound like you.
+                </p>
+              </div>
+
+              <div class="comparison-box comparison-good">
+                <div class="comparison-title">This Approach</div>
+                <p>
+                  One focused goal, one main CTA, and copy that reflects your voice, market, and ideal clients.
+                  Built to turn attention into actual conversations and deals.
+                </p>
+              </div>
+
+              <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.7rem;">
+                You’re not hiring a big agency. You’re working directly with an investor and automation builder
+                who understands what a lead actually means to your business.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process">
+        <div class="max-w">
+          <div class="section-heading">
+            <div class="section-eyebrow">Process</div>
+            <h2 class="section-title">Simple, Fast, Done-for-You</h2>
+            <p class="section-sub">
+              No long Zoom marathons or tech overwhelm. We follow a tight, high-impact process so you can stay focused on clients.
+            </p>
+          </div>
+
+          <div class="process-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-title">Quick Strategy Call</div>
+              <span>
+                We clarify your ideal client, main offers, and what action you want visitors to take—book a call,
+                request an offer, join a list, or apply.
+              </span>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-title">Design, Copy & Build</div>
+              <span>
+                I build your hero, sections, and automations based on our call, your existing branding, and any
+                testimonials or assets you share.
+              </span>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-title">Launch & Connect</div>
+              <span>
+                We plug your page into Calendly, Airtable, or your CRM so leads flow into a system you can track
+                and scale.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA + FORM -->
+      <section id="cta" class="cta">
+        <div class="max-w">
+          <div class="cta-inner">
+            <div>
+              <h2 class="cta-heading">Tell Me What You’re Building — I’ll Design the System Around It</h2>
+              <p class="cta-copy">
+                Whether you need a premium agent landing page, a Stale2Sold funnel, or a full AI-powered business
+                system, start by telling me a bit about your goals. I’ll reply personally with next steps.
+              </p>
+
+              <div class="cta-links">
+                <a href="http://bit.ly/AgentLPDemo" target="_blank" rel="noopener" class="cta-link-pill">
+                  <span>Demo</span> Premium Agent Landing Page
+                </a>
+                <a href="https://tinyurl.com/Stale2Sold" target="_blank" rel="noopener" class="cta-link-pill">
+                  <span>Agents</span> Partner on Stale Listings
+                </a>
+                <div class="cta-link-pill">
+                  <span>Contact</span> AinsteinAutomation@gmail.com • (302) 803-8664
+                </div>
+              </div>
+            </div>
+
+            <!-- FORM -->
+            <form class="form" id="intakeForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name*</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email*</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="business">Business / Brand</label>
+                  <input type="text" id="business" name="business" placeholder="Brokerage, team, or company name" />
+                </div>
+                <div class="form-group">
+                  <label for="service">What are you most interested in?*</label>
+                  <select id="service" name="service" required>
+                    <option value="">Choose one…</option>
+                    <option value="QuickSite99">QuickSite99 – $99 one-page site</option>
+                    <option value="Premium Agent LP">Premium Agent Landing Page</option>
+                    <option value="Stale2Sold">Stale2Sold – Agent Partner Funnel</option>
+                    <option value="AI Business System">Full AI Business System</option>
+                    <option value="Other">Something custom</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="bottleneck">What’s the biggest bottleneck you want to fix?*</label>
+                <textarea id="bottleneck" name="bottleneck" required placeholder="Example: I have leads but no follow-up system, I need a landing page for my listings, I want AI to handle qualification, etc."></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactPref">Preferred contact method</label>
+                  <select id="contactPref" name="contactPref">
+                    <option value="">No preference</option>
+                    <option value="Email">Email</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Text">Text</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="timeline">Ideal timeline</label>
+                  <input type="text" id="timeline" name="timeline" placeholder="ASAP, next 30 days, etc." />
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width:100%;margin-top:0.3rem;">
+                Submit & Request Strategy Call
+              </button>
+
+              <p class="form-note">
+                No spam. You’ll hear back directly from J.C. with a quick loom or email breaking down
+                your best options.
+              </p>
+
+              <div id="formStatus" class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3>AInstein Automations</h3>
-                    <p>Intelligent automation solutions for forward-thinking businesses.</p>
-                </div>
-                <div>
-                    <h3>Contact Us</h3>
-                    <p>Email: AinsteinAutomation@gmail.com</p>
-                    <p>Phone: (302) 803-8664</p>
-                    <p>Location: Delaware, USA</p>
-                </div>
-                <div>
-                    <h3>Quick Links</h3>
-                    <p><a href="#home" style="color: #aaa;">Home</a></p>
-                    <p><a href="#services" style="color: #aaa;">Services</a></p>
-                    <p><a href="#about" style="color: #aaa;">About</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 AInstein Automations. All rights reserved.</p>
-            </div>
+      <div class="max-w">
+        <div class="row">
+          <div>© <span id="year"></span> A.I.nstein Automations. All rights reserved.</div>
+          <div>
+            Built by J.C. Soto • <a href="mailto:AinsteinAutomation@gmail.com">AinsteinAutomation@gmail.com</a> •
+            <a href="tel:+13028038664">(302) 803-8664</a>
+          </div>
         </div>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navWrap = document.getElementById('navLinksWrap');
+    if (navToggle && navWrap) {
+      navToggle.addEventListener('click', () => {
+        navWrap.classList.toggle('open');
+      });
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Intake form -> Airtable webhook placeholder
+    const intakeForm = document.getElementById('intakeForm');
+    const formStatus = document.getElementById('formStatus');
+
+    const AIRTABLE_WEBHOOK_URL = 'YOUR_AIRTABLE_WEBHOOK_URL_HERE';
+    // Tip: In Airtable, create an Automation with a "Webhook" trigger, copy the URL, and paste it above.
+
+    if (intakeForm) {
+      intakeForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formStatus.textContent = '';
+        formStatus.className = 'form-status';
+
+        const formData = {
+          name: intakeForm.name.value.trim(),
+          email: intakeForm.email.value.trim(),
+          business: intakeForm.business.value.trim(),
+          service: intakeForm.service.value,
+          bottleneck: intakeForm.bottleneck.value.trim(),
+          contactPref: intakeForm.contactPref.value,
+          timeline: intakeForm.timeline.value.trim()
+        };
+
+        // Basic validation
+        if (!formData.name || !formData.email || !formData.service || !formData.bottleneck) {
+          formStatus.textContent = 'Please fill in all required fields.';
+          formStatus.classList.add('error');
+          return;
+        }
+
+        // If webhook isn't configured yet, just show a friendly message
+        if (!AIRTABLE_WEBHOOK_URL || AIRTABLE_WEBHOOK_URL.startsWith('YOUR_')) {
+          console.log('Demo form submission:', formData);
+          formStatus.textContent = 'Thanks! This demo form is ready. Add your Airtable webhook URL in the code to start capturing leads automatically.';
+          formStatus.classList.add('success');
+          intakeForm.reset();
+          return;
+        }
+
+        try {
+          formStatus.textContent = 'Sending…';
+          const res = await fetch(AIRTABLE_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          if (!res.ok) throw new Error('Network response was not ok');
+
+          formStatus.textContent = 'Got it! I’ll review this and follow up with next steps.';
+          formStatus.classList.add('success');
+          intakeForm.reset();
+        } catch (err) {
+          console.error(err);
+          formStatus.textContent = 'Something went wrong sending your info. You can also email AinsteinAutomation@gmail.com directly.';
+          formStatus.classList.add('error');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
