@@ -1,1011 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A.I.nstein Automations – Let AI Build Your Next Breakthrough</title>
-  <meta name="description" content="A.I.nstein Automations builds AI-powered websites, custom automations, and real estate AI tools so you can automate everything, grow faster, and think smarter.">
-
-  <!-- Google Font: bold, clean, Framer-style -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-main: #03030a;
-      --bg-elevated: #070716;
-      --accent: #6d5bff;
-      --accent-soft: rgba(109, 91, 255, 0.25);
-      --accent-2: #23d5ab;
-      --text-main: #ffffff;
-      --text-soft: #a7b0c5;
-      --border-soft: rgba(255, 255, 255, 0.08);
-      --card-radius: 24px;
-      --shadow-soft: 0 22px 45px rgba(0, 0, 0, 0.55);
-      --button-radius: 999px;
-      --max-width: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #151538 0, #03030a 55%, #000000 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      min-height: 100vh;
-      color: var(--text-main);
-    }
-
-    .shell {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(20px);
-      background: linear-gradient(
-        to bottom,
-        rgba(3, 3, 10, 0.95),
-        rgba(3, 3, 10, 0.85),
-        rgba(3, 3, 10, 0)
-      );
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.85rem 0 0.85rem;
-      gap: 1.5rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-    }
-
-    .brand-logo-wrap {
-      width: 56px; /* ~2x larger than before */
-      height: 56px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0, #1f1f48 40%, #05050f 75%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
-    }
-
-    .brand-logo-wrap img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .brand-title {
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-
-    .brand-sub {
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #9aa3c8;
-    }
-
-    .header-cta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.78rem;
-    }
-
-    .badge-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: radial-gradient(circle at top left, rgba(35, 213, 171, 0.22), rgba(7, 7, 22, 0.9));
-      color: #b9ffe4;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #23d5ab;
-      box-shadow: 0 0 12px rgba(35, 213, 171, 0.8);
-    }
-
-    .header-link {
-      display: none;
-      padding: 0.45rem 0.95rem;
-      border-radius: var(--button-radius);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(7, 7, 22, 0.9);
-      color: #d4dbff;
-      font-weight: 500;
-      transition: all 0.18s ease-out;
-    }
-
-    .header-link:hover {
-      border-color: rgba(255, 255, 255, 0.45);
-      transform: translateY(-1px);
-    }
-
-    @media (min-width: 768px) {
-      .header-link {
-        display: inline-flex;
-      }
-      .brand-logo-wrap {
-        width: 64px;
-        height: 64px;
-      }
-      .brand-logo-wrap img {
-        width: 48px;
-        height: 48px;
-      }
-      .brand-title {
-        font-size: 1rem;
-      }
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 4.5rem 0 4rem;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr);
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .hero-main {
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.8rem;
-      color: #9aa3c8;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      line-height: 1.03;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-title span.highlight {
-      background: linear-gradient(90deg, #ffdf6b, #ff9c6b);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      max-width: 460px;
-      color: var(--text-soft);
-      margin-bottom: 1.7rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      border-radius: var(--button-radius);
-      padding: 0.75rem 1.6rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.18s ease-out;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at top left, #ffffff, #e2e5ff);
-      color: #050516;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 26px 55px rgba(0, 0, 0, 0.75);
-    }
-
-    .btn-ghost {
-      background: rgba(7, 7, 22, 0.85);
-      border-color: rgba(255, 255, 255, 0.24);
-      color: #dde4ff;
-    }
-
-    .btn-ghost:hover {
-      border-color: #ffffff;
-      background: rgba(17, 17, 42, 0.95);
-      transform: translateY(-1px);
-    }
-
-    .btn-icon {
-      font-size: 1.1rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.1rem;
-      font-size: 0.75rem;
-      color: #838bb0;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .meta-pill {
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: radial-gradient(circle at top left, rgba(109, 91, 255, 0.35), rgba(7, 7, 22, 0.95));
-    }
-
-    .hero-visual {
-      position: relative;
-      border-radius: 32px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background:
-        radial-gradient(circle at top left, rgba(109, 91, 255, 0.35), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(35, 213, 171, 0.25), transparent 60%),
-        #050516;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("hero-breakthrough.jpg");
-      background-size: cover;
-      background-position: center;
-      opacity: 0.9;
-      mix-blend-mode: screen;
-    }
-
-    .hero-visual-inner {
-      position: relative;
-      padding: 2.5rem 2rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-    }
-
-    .hero-visual-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(3, 3, 10, 0.75);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      gap: 0.45rem;
-      align-self: flex-start;
-    }
-
-    .hero-visual-headline {
-      font-size: 1.4rem;
-      font-weight: 600;
-      max-width: 360px;
-      margin-top: 1.3rem;
-      text-shadow: 0 16px 45px rgba(0, 0, 0, 0.9);
-    }
-
-    .hero-visual-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: #d6dcff;
-    }
-
-    .hero-visual-tagline {
-      max-width: 260px;
-      color: #c5cef8;
-    }
-
-    .hero-visual-chip {
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(3, 3, 10, 0.85);
-    }
-
-    @media (min-width: 880px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
-      }
-    }
-
-    @media (max-width: 767px) {
-      .hero {
-        padding-top: 3.4rem;
-      }
-      .hero-visual-inner {
-        padding: 1.8rem 1.4rem 1.7rem;
-      }
-    }
-
-    /* SECTION WRAPPER */
-
-    section {
-      padding: 4rem 0;
-    }
-
-    .section-header {
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-
-    .section-kicker {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.75rem;
-      color: #8c95bc;
-      margin-bottom: 0.7rem;
-    }
-
-    .section-title {
-      font-size: 1.7rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--text-soft);
-      max-width: 520px;
-    }
-
-    /* SERVICES (3 cards) */
-
-    .services {
-      background: radial-gradient(circle at top, rgba(109, 91, 255, 0.12), transparent 60%);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.6rem;
-    }
-
-    @media (min-width: 900px) {
-      .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .service-card {
-      border-radius: var(--card-radius);
-      padding: 1.6rem 1.5rem 1.8rem;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), rgba(7, 7, 22, 0.94));
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-label {
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #bec6ff;
-      margin-bottom: 0.7rem;
-    }
-
-    .service-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .service-body {
-      font-size: 0.9rem;
-      color: var(--text-soft);
-      margin-bottom: 1.2rem;
-    }
-
-    .service-meta {
-      font-size: 0.78rem;
-      color: #d6dcff;
-      opacity: 0.9;
-    }
-
-    /* SHOWCASE */
-
-    .showcase {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
-      gap: 2.4rem;
-      align-items: center;
-    }
-
-    .showcase-visual {
-      border-radius: 28px;
-      border: 1px solid var(--border-soft);
-      overflow: hidden;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), rgba(7, 7, 22, 0.96));
-      box-shadow: var(--shadow-soft);
-    }
-
-    .showcase-visual img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .showcase-text p {
-      font-size: 0.95rem;
-      color: var(--text-soft);
-      margin-bottom: 0.9rem;
-    }
-
-    .showcase-list {
-      list-style: none;
-      margin-top: 0.3rem;
-    }
-
-    .showcase-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.6rem;
-      font-size: 0.9rem;
-      color: #d3dbff;
-    }
-
-    .check {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: radial-gradient(circle at top left, #23d5ab, #0f6d52);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-    }
-
-    @media (max-width: 880px) {
-      .showcase {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    /* PRICING */
-
-    .pricing {
-      background: radial-gradient(circle at top, rgba(36, 31, 95, 0.8), rgba(3, 3, 10, 0.96));
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.7rem;
-    }
-
-    @media (min-width: 900px) {
-      .pricing-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .price-card {
-      position: relative;
-      border-radius: var(--card-radius);
-      padding: 1.9rem 1.7rem 2rem;
-      background: rgba(8, 8, 32, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-
-    .price-card.recommended {
-      background: radial-gradient(circle at top, rgba(109, 91, 255, 0.4), rgba(8, 8, 32, 0.95));
-      border-color: rgba(255, 255, 255, 0.4);
-    }
-
-    .price-tag {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .price-label {
-      font-size: 0.82rem;
-      color: var(--text-soft);
-      margin-bottom: 1.2rem;
-    }
-
-    .price-name {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.8rem;
-      color: #cbd3ff;
-      margin-bottom: 0.6rem;
-    }
-
-    .price-list {
-      list-style: none;
-      margin-bottom: 1.4rem;
-      font-size: 0.9rem;
-      color: #d8e0ff;
-    }
-
-    .price-list li {
-      margin-bottom: 0.4rem;
-    }
-
-    .chip-recommended {
-      position: absolute;
-      top: 1.1rem;
-      right: 1.1rem;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.75rem;
-      border-radius: 999px;
-      background: radial-gradient(circle at top left, #ffffff, #e2e5ff);
-      color: #151531;
-      font-weight: 600;
-    }
-
-    .price-footer-note {
-      font-size: 0.8rem;
-      color: #b4bdf5;
-    }
-
-    .price-card .btn-primary,
-    .price-card .btn-ghost {
-      width: 100%;
-      justify-content: center;
-      margin-top: 0.3rem;
-    }
-
-    /* CTA */
-
-    .cta-section {
-      padding: 3.5rem 0 4rem;
-    }
-
-    .cta-panel {
-      border-radius: 32px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background:
-        radial-gradient(circle at top left, rgba(109, 91, 255, 0.4), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(35, 213, 171, 0.35), transparent 60%),
-        #050516;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("cta-calltoaction.jpg");
-      background-size: cover;
-      background-position: center;
-      opacity: 0.7;
-      mix-blend-mode: screen;
-    }
-
-    .cta-inner {
-      position: relative;
-      padding: 2.4rem 1.9rem 2.5rem;
-      text-align: center;
-    }
-
-    .cta-kicker {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.8rem;
-      color: #e5ebff;
-      margin-bottom: 0.7rem;
-    }
-
-    .cta-title {
-      font-size: 1.6rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.6rem;
-    }
-
-    .cta-text {
-      font-size: 0.95rem;
-      color: #d7defe;
-      max-width: 520px;
-      margin: 0 auto 1.6rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 2.8rem 0 2.1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: radial-gradient(circle at top, rgba(9, 9, 32, 0.9), rgba(3, 3, 10, 1));
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1.4rem;
-      align-items: center;
-      font-size: 0.8rem;
-      color: #7c84ad;
-    }
-
-    .footer-logos {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-logos img {
-      height: 34px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .footer-links a {
-      color: #aab2da;
-    }
-
-    .footer-links a:hover {
-      color: #ffffff;
-    }
-
-    @media (max-width: 640px) {
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.I.nstein Automations – Automate Everything. Grow Faster. Think Smarter.</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION (non-sticky) */
+        header {
+            width: 100%;
+            padding: 22px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+        }
+
+        header img {
+            height: 55px;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        nav a:hover {
+            color: #6a00ff;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 140px;
+            background: linear-gradient(135deg, #eaf1ff, #ffffff, #f3eaff);
+        }
+
+        .hero img {
+            height: 120px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.1;
+            color: #111;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 720px;
+            margin: 20px auto 40px;
+            color: #444;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 16px 34px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background: #ffb400;
+            color: #222;
+        }
+
+        .btn-primary:hover {
+            background: #f0a000;
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #111;
+        }
+
+        /* SECTION WRAPPER */
+        section {
+            padding: 100px 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* SERVICE CARDS */
+        .services img,
+        .pricing img,
+        .showcase img,
+        .value img,
+        .cta img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        /* SECTION TITLES */
+        h2 {
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            text-align: center;
+            background: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="page">
-    <!-- HEADER -->
-    <header>
-      <div class="shell">
-        <div class="header-inner">
-          <div class="brand">
-            <div class="brand-logo-wrap">
-              <img src="ainstein-logo.png" alt="A.I.nstein Automations logo">
-            </div>
-            <div class="brand-text">
-              <div class="brand-title">A.I.NSTEIN AUTOMATIONS</div>
-              <div class="brand-sub">Done-for-you AI &amp; automations</div>
-            </div>
-          </div>
 
-          <div class="header-cta">
-            <div class="badge-live">
-              <span class="dot"></span>
-              SYSTEMS THAT RUN 24/7
-            </div>
-            <a href="https://calendly.com/ainsteinautomation/intro-call" class="header-link" target="_blank" rel="noopener noreferrer">
-              Book a strategy call →
-            </a>
-          </div>
-        </div>
-      </div>
+    <!-- NAVIGATION -->
+    <header>
+        <img src="ainstein-logo.png" alt="A.I.nstein Automations Logo" />
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
     <!-- HERO -->
-    <main>
-      <section class="hero">
-        <div class="shell hero-inner">
-          <div class="hero-main">
-            <div class="eyebrow">AI websites • automations • real estate tools</div>
-            <h1 class="hero-title">
-              Let AI Build Your <span class="highlight">Next Breakthrough.</span>
-            </h1>
-            <p class="hero-subtitle">
-              We design and automate the systems that capture leads, follow up, and keep your business moving while you stay in your genius zone.
-            </p>
+    <div class="hero" id="home">
+        <img src="ainstein-logo.png" alt="A.I.nstein Automations" />
+        <h1>Automate Everything.<br>Grow Faster. Think Smarter.</h1>
+        <p>A.I. systems that run 24/7 so you can stay in your genius zone.</p>
 
-            <div class="hero-actions">
-              <a href="https://calendly.com/ainsteinautomation/intro-call" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                <span>Build My System</span>
-                <span class="btn-icon">⚡</span>
-              </a>
-              <a href="https://bit.ly/AgentLPDemo" class="btn-ghost" target="_blank" rel="noopener noreferrer">
-                <span>Watch Demo</span>
-                <span class="btn-icon">▶</span>
-              </a>
-            </div>
+        <a href="https://calendly.com/ainsteinautomation/intro-call">
+            <button class="btn-primary">Build My System ⚡</button>
+        </a>
 
-            <div class="hero-meta">
-              <span class="meta-pill">Built for real estate &amp; service businesses</span>
-              <span>Web • CRM • automations • AI tools</span>
-            </div>
-          </div>
+        <a href="https://bit.ly/AgentLPDemo">
+            <button class="btn-secondary">Watch Demo ►</button>
+        </a>
+    </div>
 
-          <div class="hero-visual">
-            <div class="hero-visual-inner">
-              <div class="hero-visual-badge">
-                <span class="dot"></span>
-                LIVE SYSTEM PREVIEW
-              </div>
-              <div class="hero-visual-headline">
-                AI-powered website and automation preview — see how your system could look running 24/7.
-              </div>
-              <div class="hero-visual-footer">
-                <p class="hero-visual-tagline">
-                  Leads in. Follow-ups sent. Pipelines updated. You just show up for the right conversations.
-                </p>
-                <div class="hero-visual-chip">
-                  Built by A.I.nstein Automations
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <h2>What We Build</h2>
+        <img src="services-cards.jpg" alt="AI Automation Services" />
+    </section>
 
-      <!-- SERVICES -->
-      <section class="services">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">What we build</div>
-            <h2 class="section-title">Systems that feel like cheating (but aren’t).</h2>
-            <p class="section-subtitle">
-              From first click to closed deal, we connect your website, forms, CRM, and automations into one smooth flow so nothing slips through the cracks.
-            </p>
-          </div>
+    <!-- SHOWCASE PANELS -->
+    <section class="showcase">
+        <h2>Real Automations. Real Results.</h2>
+        <img src="showcase-panels.jpg" alt="AI Tools Showcase" />
+    </section>
 
-          <div class="services-grid">
-            <article class="service-card">
-              <div class="service-label">AI Websites</div>
-              <h3 class="service-title">Conversion-first sites that sell for you.</h3>
-              <p class="service-body">
-                One-page or multi-page sites that look premium, load fast, and are built to convert visitors into booked calls and warm leads.
-              </p>
-              <p class="service-meta">
-                Perfect for: agents, investors, service pros, small businesses.
-              </p>
-            </article>
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <h2>Simple, Transparent Pricing</h2>
+        <img src="pricing-tables.jpg" alt="Pricing Tables" />
+    </section>
 
-            <article class="service-card">
-              <div class="service-label">Automations</div>
-              <h3 class="service-title">Follow-up you never have to remember.</h3>
-              <p class="service-body">
-                Automated SMS, email, and pipeline updates triggered the moment a lead opts in — without you touching a thing.
-              </p>
-              <p class="service-meta">
-                Works with: CRMs, lead forms, chatbots, call tracking &amp; more.
-              </p>
-            </article>
+    <!-- VALUE SECTION -->
+    <section class="value">
+        <h2>Why Choose A.I.nstein Automations</h2>
+        <img src="value-automate.jpg" alt="Automation Value" />
+    </section>
 
-            <article class="service-card">
-              <div class="service-label">Real Estate AI Tools</div>
-              <h3 class="service-title">Smarter decisions, faster deals.</h3>
-              <p class="service-body">
-                AI-assisted deal screens, lead scoring, and property data tools so you spend time on the opportunities that actually matter.
-              </p>
-              <p class="service-meta">
-                Built for: investors, wholesalers, agents, and acquisitions teams.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+    <!-- FINAL CTA -->
+    <section class="cta" id="contact">
+        <img src="cta-calltoaction.jpg" alt="Get Started Call to Action" />
+        <br><br>
+        <a href="https://calendly.com/ainsteinautomation/intro-call">
+            <button class="btn-primary">Build My System ⚡</button>
+        </a>
+        <a href="https://bit.ly/AgentLPDemo">
+            <button class="btn-secondary">Watch Demo ►</button>
+        </a>
+    </section>
 
-      <!-- SHOWCASE -->
-      <section>
-        <div class="shell showcase">
-          <div class="showcase-text">
-            <div class="section-kicker">How it feels</div>
-            <h2 class="section-title">From “chasing leads” to systems that run on autopilot.</h2>
-            <p>
-              You don’t need more apps — you need a connected system. We design flows where website leads instantly kick off the right automations, so you only handle the conversations that actually move the needle.
-            </p>
-            <ul class="showcase-list">
-              <li><span class="check">✓</span> Lead fills out a form → instantly gets a text &amp; email follow-up.</li>
-              <li><span class="check">✓</span> Your CRM updates with tags, source, and next action — automatically.</li>
-              <li><span class="check">✓</span> You get notified when someone is hot and ready to talk.</li>
-            </ul>
-          </div>
-
-          <div class="showcase-visual">
-            <img src="showcase-panels.jpg" alt="Preview of AI websites, automations, and real estate AI tools">
-          </div>
-        </div>
-      </section>
-
-      <!-- PRICING -->
-      <section class="pricing" id="pricing">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">Packages</div>
-            <h2 class="section-title">Start simple or go fully automated.</h2>
-            <p class="section-subtitle">
-              Whether you just need a clean landing page or a full AI-powered system, we’ll meet you where you are and build from there.
-            </p>
-          </div>
-
-          <div class="pricing-grid">
-            <!-- QuickSite -->
-            <article class="price-card">
-              <div class="price-name">QuickSite</div>
-              <div class="price-tag">$99</div>
-              <div class="price-label">Billed once</div>
-              <ul class="price-list">
-                <li>1-page conversion-focused site</li>
-                <li>Templates tailored to your niche</li>
-                <li>3-day turnaround</li>
-                <li>Essential SEO setup</li>
-              </ul>
-              <a href="https://bit.ly/AgentLPDemo" target="_blank" rel="noopener noreferrer" class="btn-ghost">Preview QuickSite</a>
-            </article>
-
-            <!-- Premium Landing Page -->
-            <article class="price-card recommended">
-              <div class="chip-recommended">Most popular</div>
-              <div class="price-name">Premium Landing Page</div>
-              <div class="price-tag">$499</div>
-              <div class="price-label">Billed once</div>
-              <ul class="price-list">
-                <li>Custom high-end design</li>
-                <li>Mobile-first &amp; blazing fast</li>
-                <li>Conversion-optimized layout</li>
-                <li>Advanced SEO &amp; analytics setup</li>
-                <li>Up to 2 rounds of revisions</li>
-              </ul>
-              <a href="https://calendly.com/ainsteinautomation/intro-call" target="_blank" rel="noopener noreferrer" class="btn-primary">Start my landing page</a>
-            </article>
-
-            <!-- AI Business System -->
-            <article class="price-card">
-              <div class="price-name">AI Business System</div>
-              <div class="price-tag">$2500+</div>
-              <div class="price-label">Starting at</div>
-              <ul class="price-list">
-                <li>Fully automated lead journey</li>
-                <li>Custom AI integrations &amp; workflows</li>
-                <li>CRM &amp; pipeline automation</li>
-                <li>Scalable architecture</li>
-                <li>Priority support during rollout</li>
-              </ul>
-              <a href="https://calendly.com/ainsteinautomation/intro-call" target="_blank" rel="noopener noreferrer" class="btn-ghost">Book a systems consult</a>
-              <p class="price-footer-note">
-                Perfect if you want a “done-for-you” engine handling leads, follow-ups, and updates.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- FINAL CTA -->
-      <section class="cta-section">
-        <div class="shell">
-          <div class="cta-panel">
-            <div class="cta-inner">
-              <div class="cta-kicker">Ready to put A.I.nstein to work?</div>
-              <h2 class="cta-title">Automate Everything. Grow Faster. Think Smarter.</h2>
-              <p class="cta-text">
-                Book a call, bring your ideas and bottlenecks, and we’ll map the exact system that saves you time, captures more opportunities, and keeps deals moving — even when you’re offline.
-              </p>
-              <div class="cta-buttons">
-                <a href="https://calendly.com/ainsteinautomation/intro-call" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                  <span>Build My System</span> <span class="btn-icon">⚡</span>
-                </a>
-                <a href="https://bit.ly/AgentLPDemo" target="_blank" rel="noopener noreferrer" class="btn-ghost">
-                  <span>Watch Demo</span> <span class="btn-icon">▶</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
     <footer>
-      <div class="shell footer-inner">
-        <div class="footer-logos">
-          <img src="ainstein-logo.png" alt="A.I.nstein Automations logo">
-          <img src="golden-rule-logo.png" alt="Golden Rule Properties logo">
-        </div>
-        <div class="footer-links">
-          <span>© <span id="year"></span> A.I.nstein Automations</span>
-          <span>•</span>
-          <a href="https://bit.ly/AgentLPDemo" target="_blank" rel="noopener noreferrer">Agent LP Demo</a>
-          <span>•</span>
-          <a href="https://tinyurl.com/Stale2Sold" target="_blank" rel="noopener noreferrer">Stale2Sold</a>
-        </div>
-      </div>
+        © 2025 A.I.nstein Automations — All Rights Reserved.
     </footer>
-  </div>
 
-  <script>
-    // Simple year updater
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
+
 
 
